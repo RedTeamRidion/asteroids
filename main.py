@@ -4,27 +4,22 @@ from constants import *
 def main():
     pygame.init
 
-    print("Starting Asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    running = True
+    clock = pygame.time.Clock()
+    dt = 0
 
-    while running:
-        # Check for events (like closing the window)
+
+    while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                return
         
-        # Fill the screen with black color
-        screen.fill((0, 0, 0))
-
-        # Update the display
+        screen.fill("black")
         pygame.display.flip()  
 
-    # Clean up Pygame when done
+        dt = clock.tick(60) / 1000
+
     pygame.quit() 
 
 
